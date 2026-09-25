@@ -1,0 +1,747 @@
+:root {
+    --oscuro: #172a3a;
+    --texto: #263238;
+    --gris: #607080;
+    --claro: #f4f1de;
+    --naranja: #e76f51;
+    --amarillo: #e9c46a;
+    --verde: #2a9d8f;
+    --fuente: "Segoe UI", sans-serif;
+}
+
+/* Base */
+html { box-sizing: border-box; font-size: 62.5%; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--texto);
+    background: #eef2f3;
+    font: 1.6rem var(--fuente);
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { margin-top: 0; }
+h2, h3 { color: var(--oscuro); }
+p { line-height: 1.6; }
+
+/* Encabezado y navegación */
+.contenedor {
+    max-width: 110rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Clases de utilidad reutilizables */
+.texto-centro { text-align: center; }
+.mt-4 { margin-top: 4rem; }
+.mb-2 { margin-bottom: 2rem; }
+.ancho-completo { width: 100%; }
+
+.site-header {
+    padding: 3rem 0 2rem;
+    background: var(--oscuro);
+    color: #fff;
+    text-align: center;
+}
+
+.titulo {
+    margin: 0;
+    font-size: 3.4rem;
+    letter-spacing: .08em;
+}
+
+.site-header span {
+    color: #cbd5dc;
+    font-size: 1.8rem;
+    letter-spacing: .12em;
+}
+
+.nav-bg { background: #264653; }
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navegacion-principal a {
+    width: 100%;
+    padding: 1.2rem;
+    color: #fff;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+.navegacion-principal a:hover { background: var(--naranja); }
+
+/* Portada */
+.hero {
+    min-height: 52rem;
+    background: linear-gradient(#172a3a99, #172a3acc), url(../img/Logo_Micros_Hidrocalidos.png) center / cover;
+}
+
+.contenido-hero,
+.texto-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero {
+    min-height: 52rem;
+    color: #fff;
+    text-align: center;
+}
+
+.texto-hero {
+    max-width: 70rem;
+    gap: 1rem;
+}
+
+.texto-hero h2 {
+    color: #fff;
+    font-size: clamp(3rem, 6vw, 6rem);
+}
+
+.place { font-weight: 700; letter-spacing: .08em; }
+
+.boton {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    border: 0;
+    background: var(--naranja);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.boton:hover { background: var(--verde); }
+
+.sombra {
+    max-width: 110rem;
+    margin: 3rem auto;
+    padding: 3rem 2rem;
+    background: #fff;
+}
+
+.nosotros,
+.servicios,
+.productos-venta,
+.beneficios,
+.contacto,
+.Registro,
+.cita-online {
+    margin-top: 4rem;
+}
+
+/* Tarjetas y galería */
+.servicios-grid,
+.nosotros-grid,
+.productos-lista,
+.evidencia-trabajo {
+    display: grid;
+    gap: 2rem;
+}
+
+.servicio {
+    padding: 2rem;
+    background: linear-gradient(180deg, #fff8f2 0%, #f4f1de 100%);
+    border: 1px solid #e3d8c1;
+    border-radius: 1.2rem;
+    box-shadow: 0 .8rem 1.8rem rgba(23,42,58,.06);
+    text-align: center;
+}
+
+.servicio h3 {
+    margin-bottom: 1.2rem;
+}
+
+.servicio p { color: var(--gris); }
+
+.servicio .icono {
+    display: grid;
+    place-items: center;
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto 1.5rem;
+    background: var(--naranja);
+    border-radius: 50%;
+    color: #fff;
+}
+
+/* Carrusel de productos */
+.productos-venta {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.productos-venta > p:not(.place) {
+    margin: -1rem 0 2rem;
+    color: var(--gris);
+}
+
+.carrusel {
+    position: relative;
+    max-width: 70rem;
+    margin: 0 auto 2rem;
+    padding: 0 4.5rem 4.5rem;
+}
+
+.carrusel-ventana {
+    overflow: hidden;
+    border: 1px solid #d9e0e3;
+    border-radius: .8rem;
+    background: #fff;
+    box-shadow: 0 1.2rem 2.5rem rgba(23,42,58,.08);
+}
+
+.carrusel-pista {
+    display: flex;
+    transition: transform .45s ease;
+}
+
+.diapositiva {
+    min-width: 100%;
+    padding: 2.5rem 3rem;
+}
+
+.diapositiva img {
+    width: 100%;
+    height: 30rem;
+    object-fit: contain;
+}
+
+.diapositiva h3 {
+    margin: 1rem 0 0;
+    color: var(--oscuro);
+}
+
+.carrusel-control {
+    position: absolute;
+    top: 45%;
+    display: grid;
+    width: 3.8rem;
+    height: 3.8rem;
+    place-items: center;
+    border: 1px solid #d5dee2;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--oscuro);
+    font-size: 2.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.carrusel-control:hover,
+.carrusel-control:focus-visible {
+    border-color: var(--verde);
+    background: var(--verde);
+    color: #fff;
+}
+
+.carrusel-anterior { left: 0; }
+.carrusel-siguiente { right: 0; }
+
+.carrusel-indicadores {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: .8rem;
+}
+
+.carrusel-indicador {
+    width: 1.1rem;
+    height: 1.1rem;
+    padding: 0;
+    border: 2px solid #b9c4c9;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.carrusel-indicador.activo {
+    border-color: var(--verde);
+    background: var(--verde);
+}
+
+.carrusel-control:focus-visible,
+.carrusel-indicador:focus-visible {
+    outline: 3px solid var(--amarillo);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carrusel-pista { transition: none; }
+}
+
+.evidencias { margin-top: 4rem; }
+
+.evidencia-trabajo h3 { text-align: center; }
+.evidencia-trabajo a { display: block; }
+.evidencia-trabajo img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.seccion-intro {
+    max-width: 70rem;
+    margin: -1rem 0 2.5rem;
+    color: var(--gris);
+}
+
+.beneficios ul {
+    display: grid;
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.beneficios li {
+    padding: 1.4rem 1.6rem;
+    border-left: .5rem solid var(--verde);
+    background: #f7faf9;
+}
+
+.beneficios-datos,
+.contacto-datos,
+.cita-pasos {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.beneficios-datos div,
+.contacto-datos div,
+.cita-pasos div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1.5rem;
+    border: 1px solid #d9e0e3;
+    background: #fff;
+}
+
+.beneficios-datos span,
+.contacto-datos span,
+.cita-pasos span { color: var(--gris); }
+
+.contacto .boton { margin-top: 2.5rem; }
+
+.cita-pasos strong {
+    color: var(--naranja);
+    font-size: 2.2rem;
+}
+
+/* Bloques informativos de la página de políticas */
+.politicas-cita {
+    padding: 2rem 0 1rem;
+}
+
+.politicas-cita h2 {
+    margin-bottom: 1.5rem;
+}
+
+.politicas-cita .seccion-intro {
+    max-width: 62rem;
+}
+
+.politicas-cita-grid {
+    display: grid;
+    gap: 1.8rem;
+    margin-top: 3rem;
+}
+
+.politica-item {
+    position: relative;
+    padding: 2.5rem 2rem 2rem;
+    border-top: .5rem solid var(--naranja);
+    background: linear-gradient(145deg, #fff, #f7faf9);
+    box-shadow: 0 1rem 2.2rem rgba(23, 42, 58, .08);
+}
+
+.politica-numero {
+    display: inline-grid;
+    width: 4rem;
+    height: 4rem;
+    place-items: center;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    background: var(--verde);
+    color: #fff;
+    font-weight: 700;
+}
+
+.politica-item h3 {
+    margin-bottom: 1rem;
+}
+
+.politica-item p {
+    margin: 0;
+    color: var(--gris);
+}
+
+/* Formularios */
+.contacto,
+.cita-online,
+.Registro { margin-top: 4rem; }
+
+.formulario,
+.formulario-registro,
+.formulario-cita {
+    max-width: 90rem;
+    margin: auto;
+}
+
+.formulario fieldset,
+.formulario-registro fieldset,
+.formulario-cita fieldset {
+    margin: 0 0 2rem;
+    padding: 3rem;
+    border: 1px solid #d5dee2;
+    border-top: .5rem solid var(--verde);
+    background: linear-gradient(135deg, #fff, #f7faf9);
+    box-shadow: 0 1rem 2rem rgba(23,42,58,.08);
+}
+
+legend {
+    padding: 0 1.2rem;
+    color: var(--oscuro);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.contenedor-campos { display: grid; gap: 1.5rem; }
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    margin-bottom: 1.2rem;
+}
+
+.campo label {
+    color: var(--oscuro);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: .03em;
+}
+
+.input-text,
+.formulario-cita input,
+.formulario-cita select,
+.formulario-cita textarea,
+.formulario-registro input {
+    width: 100%;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid #b9c4c9;
+    border-radius: .7rem;
+    background: #f8fafb;
+    color: var(--texto);
+    font: inherit;
+}
+
+.input-text:focus,
+.formulario-cita input:focus,
+.formulario-cita select:focus,
+.formulario-cita textarea:focus,
+.formulario-registro input:focus {
+    outline: none;
+    border-color: var(--verde);
+    box-shadow: 0 0 0 .3rem rgba(42,157,143,.15);
+    background: #fff;
+}
+
+textarea.input-text,
+.formulario-cita textarea,
+.formulario-registro textarea {
+    min-height: 12rem;
+    resize: vertical;
+}
+
+.alinear-derecha {
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+.formulario .boton,
+.formulario-registro .boton,
+.formulario-cita .boton {
+    min-width: 14rem;
+    margin-top: 0;
+    border-radius: .7rem;
+}
+
+/* Pie de página */
+footer {
+    padding: 3rem 2rem;
+    background: var(--oscuro);
+    color: #fff;
+    text-align: center;
+}
+
+footer p { margin: 0; }
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.red-social {
+    display: grid;
+    width: 4.4rem;
+    height: 4.4rem;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, .45);
+    border-radius: 50%;
+    color: #fff;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.red-social svg {
+    width: 2.3rem;
+    height: 2.3rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.red-social:hover,
+.red-social:focus-visible {
+    background: var(--naranja);
+    color: #fff;
+    transform: translateY(-.3rem);
+}
+
+/* Página Nosotros */
+.pagina-nosotros {
+    background: linear-gradient(180deg, #f8f3ec 0%, #f4f0ea 100%);
+    color: #3f4036;
+}
+
+.pagina-nosotros .site-header {
+    background: linear-gradient(135deg, #2d2a29, #504b46);
+}
+
+.pagina-nosotros .nav-bg {
+    background: linear-gradient(135deg, var(--naranja), #d7683a);
+}
+
+.nosotros-contenido {
+    max-width: 110rem;
+    padding: 7rem 0;
+}
+
+.nosotros-intro {
+    display: grid;
+    grid-template-columns: 1.5fr .7fr;
+    align-items: end;
+    gap: 2rem;
+    max-width: 100%;
+    margin-bottom: 6rem;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(63, 64, 54, 0.08);
+    border-radius: 2rem;
+    box-shadow: 0 2rem 4rem rgba(63, 64, 54, 0.08);
+}
+
+.nosotros-copy {
+    max-width: 66rem;
+}
+
+.nosotros-intro h2 {
+    color: #3f4036;
+    font-size: clamp(3.2rem, 6vw, 6rem);
+    line-height: 1.05;
+}
+
+.nosotros-intro > .nosotros-copy > p:last-child {
+    max-width: 56rem;
+    font-size: 1.9rem;
+}
+
+.nosotros-badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 15rem;
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #f7e4d0, #f2c3a8);
+    border-radius: 1.8rem;
+    border: 1px solid rgba(180, 83, 46, 0.12);
+}
+
+.nosotros-badge span {
+    display: block;
+    color: #3f4036;
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.nosotros-badge small {
+    color: #5b4a40;
+    font-size: 1.3rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.etiqueta {
+    color: #b4532e;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.nosotros-datos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.nosotros-datos article {
+    padding: 2.4rem 2rem;
+    background: rgba(255, 255, 255, 0.75);
+    border-top: 4px solid #3f4036;
+    border-radius: 1.5rem;
+    box-shadow: 0 1.4rem 2.5rem rgba(63, 64, 54, 0.06);
+}
+
+.nosotros-datos strong {
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    color: var(--naranja);
+    font-size: 2.8rem;
+}
+
+.nosotros-datos h3 { color: #3f4036; }
+
+.nosotros-mision {
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+.nosotros-panel {
+    padding: 3rem 2.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(63, 64, 54, 0.08);
+    border-radius: 2rem;
+    box-shadow: 0 1.8rem 3rem rgba(63, 64, 54, 0.06);
+}
+
+.nosotros-panel h3 {
+    color: #3f4036;
+    font-size: clamp(2.2rem, 3vw, 3.4rem);
+    line-height: 1.2;
+}
+
+.nosotros-panel.destacado {
+    background: linear-gradient(135deg, #3f4036, #2c2a28);
+    color: #fff;
+}
+
+.nosotros-panel.destacado .etiqueta,
+.nosotros-panel.destacado h3,
+.nosotros-panel.destacado li {
+    color: #fff;
+}
+
+.nosotros-panel.destacado ul {
+    margin: 1.8rem 0 0;
+    padding-left: 1.8rem;
+    line-height: 2;
+}
+
+@media (max-width: 780px) {
+    .nosotros-intro,
+    .nosotros-mision,
+    .nosotros-datos {
+        grid-template-columns: 1fr;
+    }
+
+    .nosotros-intro {
+        padding: 2rem;
+    }
+}
+
+/* Página Productos */
+.pagina-productos {
+    background: var(--oscuro);
+    color: #edf2f4;
+}
+
+.pagina-productos .site-header {
+    background: var(--amarillo);
+    color: var(--oscuro);
+}
+
+.pagina-productos .titulo,
+.pagina-productos .site-header span { color: var(--oscuro); }
+
+.pagina-productos .productos-contenido { padding: 6rem 0; }
+
+.productos-titulo {
+    padding-left: 2rem;
+    border-left: .8rem solid var(--naranja);
+}
+
+.productos-titulo h2,
+.productos-titulo p:not(.etiqueta) { color: #edf2f4; }
+
+.productos-lista {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 4rem 0;
+}
+
+.producto {
+    min-height: 18rem;
+    padding: 2rem;
+    background: var(--claro);
+    color: var(--oscuro);
+    border-bottom: .8rem solid var(--verde);
+}
+
+/* Responsive */
+@media (min-width: 480px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 780px) {
+    .servicios-grid,
+    .nosotros-grid { grid-template-columns: repeat(3, 1fr); }
+    .evidencia-trabajo { grid-template-columns: repeat(2, 1fr); }
+    .contenedor-campos { grid-template-columns: repeat(2, 1fr); }
+    .beneficios-datos,
+    .contacto-datos,
+    .cita-pasos,
+    .politicas-cita-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+    .nosotros-datos,
+    .productos-lista { grid-template-columns: 1fr; }
+}
+
